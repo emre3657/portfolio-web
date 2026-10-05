@@ -20,6 +20,17 @@ export const EXPERIENCE: ExperienceSectionData = {
   title: "Deneyim & Eğitim",
   payload: [
     {
+      id: "edu-software-persona",
+      type: "Eğitim",
+      startTime: "2026-08-01",
+      endTime: "2026-08-31",
+      dateLabel: "Ağustos / 2026",
+      title: "Yazılım Mesleki Gelişim Programı",
+      org: "Software Persona",
+      description:
+        "40 saatlik proje bazlı yazılım geliştirme programı\nReact, Node.js, SQL, Flutter ve uygulamalı proje geliştirme",
+    },
+    {
       id: "exp-eroğlu",
       type: "Deneyim",
       startTime: "2024-10-02",
@@ -45,7 +56,7 @@ export const EXPERIENCE: ExperienceSectionData = {
       type: "Eğitim",
       startTime: "2020-10-07",
       endTime: "2025-03-26",
-      dateLabel: "2020 – 2025 (Mart)",
+      dateLabel: "2020 – Mart / 2025",
       title: "Bilgisayar Mühendisliği (Tr)",
       org: "İstanbul Beykent Üniversitesi",
       description: "Lisans derecesi, AGNO: 3,19",
