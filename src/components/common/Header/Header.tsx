@@ -1,4 +1,4 @@
-import { ApiStatus } from "./ApiStatus";
+import { ApiStatus } from "../ApiStatus/ApiStatus";
 import "./Header.css";
 
 export function Header() {
@@ -20,6 +20,9 @@ export function Header() {
           </li>
           <li>
             <a href="#experience">Deneyim</a>
+          </li>
+          <li>
+            <a href="#certificates">Sertifikalar</a>
           </li>
           <li>
             <a href="#contact">İletişim</a>
