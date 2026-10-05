@@ -1,0 +1,246 @@
+/* Lightbox - full-screen overlay */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+/* Açılış animasyonu */
+.lightbox-backdrop.is-open {
+  animation: lightbox-fade-in 0.2s ease-out;
+}
+
+@keyframes lightbox-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* FocusTrap içindeki wrapper */
+.lightbox-wrapper {
+  position: relative;
+  max-width: calc(100vw - 48px);
+  max-height: 90vh;
+}
+
+/* Kapat butonu */
+.lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+
+  cursor: pointer;
+  z-index: 1001;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.lightbox-close i {
+  font-size: 1.1rem;
+}
+
+.lightbox-close:hover {
+  background: rgba(0, 0, 0, 0.95);
+  transform: scale(1.05);
+}
+
+.lightbox-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* İçerik kutusu */
+.lightbox-content {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  max-width: 100%;
+  max-height: 90vh;
+
+  margin: 0 auto;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Medya */
+.lightbox-image,
+.lightbox-video {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width: min(900px, calc(100vw - 48px));
+  max-height: 90vh;
+
+  object-fit: contain;
+}
+
+/* Sadece ekinci-shop ekran görüntülerine border-radius ver */
+.lightbox-backdrop[data-project-id="ekinci-shop"] .lightbox-image {
+  border-radius: 40px;
+}
+
+/* Slider navigation */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+
+  font-size: 1.15rem;
+  cursor: pointer;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.lightbox-nav-prev {
+  left: 16px;
+}
+
+.lightbox-nav-next {
+  right: 16px;
+}
+
+/* Desktop'ta hover olunca okları göster */
+.lightbox-content:hover .lightbox-nav,
+.lightbox-nav:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-nav:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-nav:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Sayaç */
+.lightbox-counter {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  pointer-events: none;
+}
+
+/* Touch cihazlarda hover olmadığı için oklar sürekli görünür */
+@media (hover: none) {
+  .lightbox-nav {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Küçük ekranlar */
+@media (max-width: 600px) {
+  .lightbox-backdrop {
+    padding: 12px;
+  }
+
+  .lightbox-wrapper {
+    width: 100%;
+  }
+
+  .lightbox-content {
+    border-radius: 8px;
+  }
+
+  .lightbox-close {
+    top: 12px;
+    right: 12px;
+  }
+
+  .lightbox-nav {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .lightbox-nav-prev {
+    left: 10px;
+  }
+
+  .lightbox-nav-next {
+    right: 10px;
+  }
+
+  .lightbox-counter {
+    bottom: 10px;
+  }
+}
+
+.focus-trap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-height: 90vh;
+}

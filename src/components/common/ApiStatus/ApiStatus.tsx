@@ -1,5 +1,5 @@
 import { startTransition, useEffect, useState } from "react";
-import { useApiStatus } from "../context/customHooks";
+import { useApiStatus } from "../../../context/customHooks";
 import "./ApiStatus.css";
 
 export function ApiStatus() {
@@ -67,10 +67,10 @@ export function ApiStatus() {
     apiState === "pending"
       ? "pending"
       : apiState === "success"
-      ? "active"
-      : apiState === "error"
-      ? "inactive"
-      : "",
+        ? "active"
+        : apiState === "error"
+          ? "inactive"
+          : "",
     isFadingOut ? "fade-out" : "",
   ]
     .filter(Boolean)
